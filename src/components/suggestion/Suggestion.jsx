@@ -13,7 +13,7 @@ const Suggestion = () => {
         setDarkmode(value)
       },[])
   useEffect(()=>{
-    axios.get(`${import.meta.env.VITE_BACKEND_URL}/getusers/${user?.id}`)
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/getusers/${user?.id}`,{withCredentials:true})
     .then(res=>{
       setUsers(res.data)
       console.log(users)

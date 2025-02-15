@@ -23,11 +23,13 @@ const Home = ({data,profile,fetchpost,setUserProfileRefetch}) => {
 
   useEffect(() => {
    const hi=async()=>{
-    const token =await Cookies.get("accesstoken");
+  let token= Cookies.get("accesstoken");
+  console.log(document.cookie,token)
     if (token) {
       try {
         const decoded = await jwtDecode(token);
-        await dispatch(addUser(decoded));  // Add user to Redux store
+        await dispatch(addUser(decoded)); 
+        console.log(decoded,"decoded") // Add user to Redux store
           fetchpost(decoded.id)
       } catch (error) {
         console.error('Invalid token:', error);

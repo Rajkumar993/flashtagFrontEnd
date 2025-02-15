@@ -6,9 +6,10 @@ import { Link } from 'react-router-dom';
 const OnlineUsers = ({darkmode}) => {
     const [followedUser,setFollowedUser]=useState([]);
     const{user}=useSelector(state=>state.userId)
+    
     useEffect(()=>{
       // console.log(post?.PostId,"from follow componets")
-      axios.get(`${import.meta.env.VITE_BACKEND_URL}/online/${user?.id}`).then(res=>setFollowedUser(res.data)).catch(err=>console.log(err))
+      axios.get(`${import.meta.env.VITE_BACKEND_URL}/online/${user?.id}`,{withCredentials:true}).then(res=>setFollowedUser(res.data)).catch(err=>console.log(err))
   },[user]);
   console.log(followedUser,"online")
   return (

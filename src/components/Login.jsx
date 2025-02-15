@@ -28,7 +28,8 @@ async function handleSubmit(e){
 })
   }
   const googleAuth = () => {
-    window.open(`${import.meta.env.VITE_BACKEND_URL}/auth/google`, "_self");
+   
+    window.location.href = `https://flashtagbackend.onrender.com/auth/google`;
   };
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
